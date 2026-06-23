@@ -78,11 +78,11 @@
       transition: opacity 0.2s;
     }
     .nav-logo:hover { opacity: 0.75; }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
     .nav-links a {
       font-family: 'Space Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--slate);
       text-decoration: none;
@@ -104,14 +104,15 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       background: var(--amber);
-      color: var(--ink);
+      color: var(--ink) !important;
       text-decoration: none;
       padding: 0.45rem 1rem;
       font-weight: 700;
       transition: background 0.2s, transform 0.15s;
       display: inline-block;
     }
-    .nav-home-btn:hover { background: var(--amber-d); transform: translateY(-1px); }
+    .nav-home-btn:hover { background: var(--amber-d) !important; transform: translateY(-1px); }
+    .nav-home-btn::after { display: none !important; }
 
     /* ── HERO ── */
     .hero {
@@ -213,8 +214,6 @@
       opacity: 0.12;
       pointer-events: none;
     }
-
-    /* Parallax wrapper */
     .hero-parallax { will-change: transform; }
 
     /* ── BUTTONS ── */
@@ -292,153 +291,158 @@
     .about .section-title { color: var(--ink); }
     .about .section-label { color: var(--amber-d); }
     .about .divider { background: var(--amber-d); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    .about-body p {
-      font-size: 1.05rem;
-      color: #2A3340;
-      line-height: 1.8;
-      margin-bottom: 1.2rem;
-    }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .about-body p { font-size: 1.05rem; color: #2A3340; line-height: 1.8; margin-bottom: 1.2rem; }
     .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .stat-card {
-      background: var(--ink);
-      color: var(--cream);
-      padding: 1.6rem;
-      border-left: 3px solid var(--amber);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
+      background: var(--ink); color: var(--cream);
+      padding: 1.6rem; border-left: 3px solid var(--amber);
+      transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: default;
     }
-    .stat-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
-    }
+    .stat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
     .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: var(--amber);
-      line-height: 1;
-      display: block;
-      margin-bottom: 0.3rem;
+      font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900;
+      color: var(--amber); line-height: 1; display: block; margin-bottom: 0.3rem;
     }
     .stat-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--slate);
+      font-family: 'Space Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate);
     }
 
     /* ── PODCASTS ── */
     .podcasts { background: var(--mid); }
-    .podcast-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-    }
+    .podcast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; }
     .podcast-card {
-      background: var(--ink);
-      padding: 2.4rem;
+      background: var(--ink); padding: 2.4rem;
       transition: background 0.25s, transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .podcast-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--amber);
-      transform: scaleX(0);
-      transform-origin: left;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--amber); transform: scaleX(0); transform-origin: left;
       transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
     }
     .podcast-card:hover { background: #141B25; transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
     .podcast-card:hover::before { transform: scaleX(1); }
     .podcast-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 1rem;
-      display: block;
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber);
+      margin-bottom: 1rem; display: block;
     }
-    .podcast-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: 1rem;
-    }
-    .podcast-desc {
-      font-size: 0.9rem;
-      color: var(--slate);
-      line-height: 1.7;
-      margin-bottom: 1.6rem;
-    }
+    .podcast-name { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 700; line-height: 1.25; margin-bottom: 1rem; }
+    .podcast-desc { font-size: 0.9rem; color: var(--slate); line-height: 1.7; margin-bottom: 1.6rem; }
     .podcast-meta {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      color: #3A4A5A;
-      border-top: 1px solid var(--border);
-      padding-top: 1.2rem;
-      line-height: 1.8;
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.1em; color: #3A4A5A;
+      border-top: 1px solid var(--border); padding-top: 1.2rem; line-height: 1.8;
     }
 
-    /* ── EXPERTISE ── */
-    .expertise { background: var(--cream); color: var(--ink); }
-    .expertise .section-title { color: var(--ink); }
-    .expertise .section-label { color: var(--amber-d); }
-    .expertise .divider { background: var(--amber-d); }
-    .skills-grid {
+    /* ── JOURNALISM ── */
+    .journalism { background: var(--cream); color: var(--ink); }
+    .journalism .section-title { color: var(--ink); }
+    .journalism .section-label { color: var(--amber-d); }
+    .journalism .divider { background: var(--amber-d); }
+    .articles-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: #C8C3BA;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
     }
+    .article-card {
+      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+    }
+    .article-card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 2px; background: var(--amber);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+    .article-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.18); }
+    .article-card:hover::after { transform: scaleX(1); }
+    .article-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+      background: var(--mid);
+    }
+    .article-card:hover .article-thumb { transform: scale(1.04); }
+    .article-thumb-placeholder {
+      width: 100%; aspect-ratio: 16/9;
+      background: var(--mid);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem;
+    }
+    .article-thumb-placeholder span:first-child { font-size: 2rem; opacity: 0.3; }
+    .article-thumb-placeholder span:last-child {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--slate);
+      opacity: 0.6;
+    }
+    .article-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .article-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--amber-d);
+      margin-bottom: 0.6rem;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--cream); line-height: 1.35;
+      margin-bottom: 0.8rem;
+    }
+    .article-desc {
+      font-size: 0.84rem; color: var(--slate);
+      line-height: 1.65; flex: 1; margin-bottom: 1.2rem;
+    }
+    .article-read {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--amber);
+      display: flex; align-items: center; gap: 0.4rem;
+      transition: gap 0.2s ease;
+    }
+    .article-card:hover .article-read { gap: 0.7rem; }
+    .article-read-arrow { font-size: 0.85rem; }
+    .journalism-cta { text-align: center; }
+
+    /* ── EXPERTISE ── */
+    .expertise { background: var(--ink); color: var(--cream); }
+    .expertise .section-title { color: var(--cream); }
+    .expertise .section-label { color: var(--amber); }
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #1A2230; }
     .skill-cell {
-      background: var(--cream);
-      padding: 2rem 1.6rem;
+      background: var(--ink); padding: 2rem 1.6rem;
       transition: background 0.25s, transform 0.25s;
     }
-    .skill-cell:hover { background: #E5E1D8; transform: translateY(-2px); }
+    .skill-cell:hover { background: #141B25; transform: translateY(-2px); }
     .skill-icon { font-size: 1.4rem; margin-bottom: 0.8rem; display: block; }
-    .skill-name {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-    }
-    .skill-detail { font-size: 0.85rem; color: #5C6B7A; line-height: 1.6; }
+    .skill-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; color: var(--cream); margin-bottom: 0.5rem; }
+    .skill-detail { font-size: 0.85rem; color: var(--slate); line-height: 1.6; }
 
     /* ── TOOLS ── */
     .tools { background: var(--mid); }
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
+    .tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
     .tool-group {
-      background: var(--ink);
-      padding: 1.8rem;
-      border-top: 2px solid var(--amber);
+      background: var(--ink); padding: 1.8rem; border-top: 2px solid var(--amber);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .tool-group:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.35); }
     .tool-group-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 1.2rem;
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.2rem;
     }
     .tool-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
     .tool-list li { font-size: 0.92rem; font-weight: 500; color: var(--cream); line-height: 1.3; }
@@ -447,61 +451,40 @@
     /* ── DESIGN WORK ── */
     .design-work { background: var(--ink); }
     .slideshow-wrap { position: relative; overflow: hidden; margin-bottom: 2rem; }
-    .slideshow {
-      display: flex;
-      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
-    }
+    .slideshow { display: flex; transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); }
     .slide {
-      min-width: 100%;
-      position: relative;
-      overflow: hidden;
-      background: var(--mid);
-      aspect-ratio: 16/9;
-      cursor: pointer;
+      min-width: 100%; position: relative; overflow: hidden;
+      background: var(--mid); aspect-ratio: 16/9; cursor: pointer;
     }
     .slide img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
+      width: 100%; height: 100%; object-fit: cover; display: block;
       transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
     }
     .slide:hover img { transform: scale(1.04); }
     .slide-placeholder {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 1rem;
-      color: var(--slate);
-      background: var(--mid);
+      width: 100%; height: 100%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 1rem;
+      color: var(--slate); background: var(--mid);
       border: 1px dashed rgba(240,237,230,0.15);
     }
     .slide-placeholder-icon { font-size: 2.5rem; opacity: 0.4; }
     .slide-placeholder-text {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      opacity: 0.5;
-      text-align: center;
+      font-family: 'Space Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.5; text-align: center;
     }
     .slide-placeholder-path {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.6rem;
-      color: var(--amber);
-      opacity: 0.7;
-      text-align: center;
+      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      color: var(--amber); opacity: 0.7; text-align: center;
     }
     .slideshow-controls {
-      display: flex; align-items: center; justify-content: center; gap: 1.5rem;
-      margin-bottom: 2rem;
+      display: flex; align-items: center; justify-content: center;
+      gap: 1.5rem; margin-bottom: 2rem;
     }
     .slide-btn {
       background: none; border: 1px solid var(--border);
       color: var(--cream); cursor: pointer;
-      width: 44px; height: 44px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; transition: border-color 0.2s, background 0.2s, transform 0.15s;
     }
     .slide-btn:hover { border-color: var(--amber); background: rgba(232,160,32,0.08); transform: scale(1.05); }
     .slide-dots { display: flex; gap: 0.5rem; }
@@ -516,650 +499,33 @@
     /* ── VIDEO WORK ── */
     .video-work { background: var(--mid); }
     .video-cta-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      padding: 4rem;
-      border: 1px dashed rgba(232,160,32,0.3);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 2rem; padding: 4rem;
+      border: 1px dashed rgba(232,160,32,0.3); text-align: center;
+      position: relative; overflow: hidden;
     }
     .video-cta-block::before {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: radial-gradient(ellipse at center, rgba(232,160,32,0.04) 0%, transparent 70%);
       pointer-events: none;
     }
-    .video-icon {
-      font-size: 3.5rem;
-      animation: pulse-amber 2.5s ease-in-out infinite;
-      display: inline-block;
-    }
-    .video-cta-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
+    .video-icon { font-size: 3.5rem; animation: pulse-amber 2.5s ease-in-out infinite; display: inline-block; }
+    .video-cta-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 0.5rem; }
     .video-cta-desc { font-size: 0.95rem; color: var(--slate); max-width: 420px; line-height: 1.7; }
 
     /* ── ROLES ── */
     .roles { background: var(--ink); }
     .roles-list { display: flex; flex-direction: column; }
     .role-row {
-      display: grid;
-      grid-template-columns: 280px 1fr auto;
-      gap: 2rem;
-      align-items: baseline;
-      padding: 1.6rem 0;
+      display: grid; grid-template-columns: 280px 1fr auto;
+      gap: 2rem; align-items: baseline; padding: 1.6rem 0;
       border-bottom: 1px solid var(--border);
-      transition: background 0.2s, padding-left 0.2s;
-      cursor: default;
+      transition: background 0.2s, padding-left 0.2s; cursor: default;
     }
     .role-row:first-child { border-top: 1px solid var(--border); }
     .role-row:hover { background: rgba(240,237,230,0.02); padding-left: 0.5rem; }
     .role-org {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--amber);
-      line-height: 1.5;
+      font-family: 'Space Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); line-height: 1.5;
     }
-    .role-title { font-size: 1rem; font-weight: 500; color: var(--cream); }
-    .role-note {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.62rem;
-      color: var(--slate);
-      text-align: right;
-      white-space: nowrap;
-    }
-
-    /* ── CONTACT ── */
-    .contact {
-      background: var(--amber);
-      color: var(--ink);
-      text-align: center;
-      padding: 6rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .contact::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 120%, rgba(255,255,255,0.15) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .contact .section-label { color: var(--amber-d); }
-    .contact .section-title { color: var(--ink); font-size: clamp(2rem, 4vw, 3.2rem); max-width: 640px; margin: 0 auto 1.5rem; }
-    .contact-sub { font-size: 1rem; color: rgba(13,17,23,0.65); max-width: 480px; margin: 0 auto 2.8rem; }
-    .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .contact-btn {
-      display: inline-block;
-      background: var(--ink); color: var(--amber);
-      font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      text-decoration: none; padding: 0.85rem 2rem;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .contact-btn:hover { background: var(--mid); transform: translateY(-2px); }
-    .contact-btn-ghost {
-      display: inline-block;
-      border: 2px solid var(--ink); color: var(--ink);
-      font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      text-decoration: none; padding: 0.85rem 2rem;
-      transition: background 0.2s, color 0.2s, transform 0.15s;
-    }
-    .contact-btn-ghost:hover { background: var(--ink); color: var(--amber); transform: translateY(-2px); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      border-top: 1px solid var(--border);
-      padding: 2rem 4rem;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .footer-copy { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--slate); text-transform: uppercase; }
-    .footer-tag  { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; color: #2A3A4A; text-transform: uppercase; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1100px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; padding-bottom: 3rem; }
-      .hero-photo-col { display: none; }
-    }
-    @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      nav.scrolled { padding: 0.75rem 1.5rem; }
-      .nav-links { display: none; }
-      .hero { padding: 8rem 1.5rem 4rem; }
-      section { padding: 4rem 1.5rem; }
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .podcast-grid { grid-template-columns: 1fr; gap: 1px; }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-      .tools-grid { grid-template-columns: 1fr 1fr; }
-      .role-row { grid-template-columns: 1fr; gap: 0.3rem; }
-      .role-note { text-align: left; }
-      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-    }
-    @media (max-width: 560px) {
-      .skills-grid { grid-template-columns: 1fr; }
-      .tools-grid  { grid-template-columns: 1fr; }
-      .about-stats { grid-template-columns: 1fr; }
-      .video-cta-block { padding: 2.5rem 1.5rem; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .signal-canvas { display: none; }
-      .reveal, .reveal-left, .reveal-right, .stagger-child { opacity: 1; transform: none; transition: none; }
-      .hero-eyebrow, .hero-headline, .hero-sub, .hero-cta, .hero-photo-col { opacity: 1; animation: none; }
-    }
-  </style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav id="mainNav">
-  <a href="#home" class="nav-logo">Collins Victory Odabi</a>
-  <ul class="nav-links">
-    <li><a href="#home" class="nav-home-btn">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#podcasts">Podcasts</a></li>
-    <li><a href="#expertise">Expertise</a></li>
-    <li><a href="#tools">Tools</a></li>
-    <li><a href="#design-work">Design</a></li>
-    <li><a href="#video-work">Video</a></li>
-    <li><a href="#roles">Roles</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <canvas class="signal-canvas" id="signalCanvas"></canvas>
-
-  <div class="hero-content hero-parallax">
-    <span class="hero-eyebrow">Nigeria · Media &amp; Communications</span>
-    <h1 class="hero-headline">
-      Where <em>editorial rigour</em><br>meets the digital frontier.
-    </h1>
-    <p class="hero-sub">
-      Multimedia journalist, podcast host, and strategic communicator turning complex ideas into conversations that matter — across broadcast, Web3, and the world of climate enterprise.
-    </p>
-    <div class="hero-cta">
-      <a href="#podcasts" class="btn-primary">Explore the Shows</a>
-      <a href="#contact" class="btn-ghost">Work With Me</a>
-    </div>
-  </div>
-
-  <div class="hero-photo-col">
-    <div class="hero-photo-frame">
-      <!--
-        PHOTO SETUP FOR GITHUB DEPLOYMENT
-        1. Download your photo file and rename it: collins-photo.png
-        2. Place it in the same folder as this index.html file in your repo
-        3. The src below will then work automatically at ovcollins.github.io
-      -->
-      <img
-        src="assets/designs/collins-photo.png"
-        alt="Collins Victory Odabi"
-        class="hero-photo"
-        onerror="this.parentElement.style.display='none'"
-      />
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <span class="section-label reveal">The Background</span>
-  <h2 class="section-title reveal">Journalist first.<br>Everything else follows.</h2>
-  <div class="divider reveal"></div>
-  <div class="about-grid">
-    <div class="about-body reveal-left">
-      <p>Collins Victory Odabi is a Nigeria-based multimedia professional whose work sits at the intersection of journalism, digital strategy, and audio storytelling. His editorial instincts were forged early — as the founding President and Editorial Board Chairman of the Association of Campus Journalists at the University of Benin, Benin City, Edo State, he built structures and standards, not just content.</p>
-      <p>Today, he hosts three distinct podcasts spanning professional development, Web3 infrastructure, and the emerging economics of direct air carbon removal. Each show reflects a consistent philosophy: disciplined curiosity, rigorous preparation, and a commitment to bringing specialist knowledge to broader audiences.</p>
-      <p>Beyond audio, Collins serves as Technical Director at Christ's Chosen Church of God International (CCCGi). He previously served as Director of Strategic Communication and PR at the National Association of University Students (NAUS) South-South VP office. His background spans digital marketing, graphic design, freelance writing, and substantive engagement with crypto markets and Web3 ecosystems.</p>
-    </div>
-    <div class="about-stats reveal-right">
-      <div class="stat-card stagger-child">
-        <span class="stat-num">3</span>
-        <span class="stat-label">Active Podcast Shows</span>
-      </div>
-      <div class="stat-card stagger-child">
-        <span class="stat-num">80+</span>
-        <span class="stat-label">Podcast Episodes Recorded</span>
-      </div>
-      <div class="stat-card stagger-child">
-        <span class="stat-num">1000+</span>
-        <span class="stat-label">Users Converted — FlologPharma</span>
-      </div>
-      <div class="stat-card stagger-child">
-        <span class="stat-num" style="font-size:1.5rem;">ACJ UNIBEN</span>
-        <span class="stat-label">Founding President</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PODCASTS -->
-<section class="podcasts" id="podcasts">
-  <span class="section-label reveal">The Shows</span>
-  <h2 class="section-title reveal">Three voices.<br>Three distinct worlds.</h2>
-  <div class="divider reveal"></div>
-  <div class="podcast-grid">
-
-    <div class="podcast-card stagger-child">
-      <span class="podcast-tag">Interview · Professional</span>
-      <h3 class="podcast-name"><a href="https://podcasts.apple.com/us/podcast/on-your-mic/id1896134974" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">On Your Mic</a></h3>
-      <p class="podcast-desc">An interview-based podcast that extracts operational insight from practitioners across business, leadership, law, the arts, and professional practice. Every episode is built around a single guest and conversations that span a range of themes — from the mechanics of leadership to the quiet decisions that define careers.</p>
-      <div class="podcast-meta">
-        FORMAT: Audio · Interview · 20–30 min<br>
-        APPROACH: Insight-focused
-      </div>
-    </div>
-
-    <div class="podcast-card stagger-child">
-      <span class="podcast-tag">Analysis · Web3</span>
-      <h3 class="podcast-name"><a href="https://podcasts.apple.com/us/podcast/web3-unfiltered/id1870907311" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Web3 Unfiltered</a></h3>
-      <p class="podcast-desc">An analytical podcast for builders and thinkers inside the Web3 ecosystem. There are no hypes and no surface-level takes here — only infrastructure-level conversations about where decentralised systems are actually going, and why it matters to the people building them.</p>
-      <div class="podcast-meta">
-        FORMAT: Audio · Analytical · 30–50 min<br>
-        AUDIENCE: Web3 Builders &amp; Thinkers
-      </div>
-    </div>
-
-    <div class="podcast-card stagger-child">
-      <span class="podcast-tag">Enterprise · Climate</span>
-      <h3 class="podcast-name"><a href="https://podcasts.apple.com/us/podcast/the-skycarbon-enterprise-hour/id1896881344" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">The SkyCarbon Enterprise Hour</a></h3>
-      <p class="podcast-desc">A show examining direct air carbon removal as an economic opportunity across the American West. The conversation draws in policymakers, scientists, and enterprise leaders who are actively shaping the carbon economy — and asks the questions that determine whether it scales.</p>
-      <div class="podcast-meta">
-        FORMAT: Audio · Enterprise · Climate<br>
-        FOCUS: Carbon Removal &amp; Climate Economics
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- EXPERTISE -->
-<section class="expertise" id="expertise">
-  <span class="section-label reveal">Capabilities</span>
-  <h2 class="section-title reveal">The full stack<br>of communications.</h2>
-  <div class="divider reveal"></div>
-  <div class="skills-grid">
-    <div class="skill-cell stagger-child">
-      <span class="skill-icon">🎙️</span>
-      <div class="skill-name">Podcast Production</div>
-      <div class="skill-detail">End-to-end production: blueprint development, guest outreach, interview execution, show notes, and platform publishing across Spotify, Apple Podcasts, YouTube, and AudioMack.</div>
-    </div>
-    <div class="skill-cell stagger-child">
-      <span class="skill-icon">✍️</span>
-      <div class="skill-name">Editorial Writing</div>
-      <div class="skill-detail">Journalism-trained writing with experience across features, profiles, campaign copy, Substack content, and structured communications for print and digital.</div>
-    </div>
-    <div class="skill-cell stagger-child">
-      <span class="skill-icon">📡</span>
-      <div class="skill-name">Strategic Communications</div>
-      <div class="skill-detail">PR strategy, media positioning, and institutional communications — including a tenure as Director of Strategic Communication and PR at the National Association of University Students (NAUS) South-South VP office.</div>
-    </div>
-    <div class="skill-cell stagger-child">
-      <span class="skill-icon">₿</span>
-      <div class="skill-name">Web3 &amp; Crypto Discourse</div>
-      <div class="skill-detail">Substantive, long-standing engagement with blockchain infrastructure, crypto markets, and decentralised ecosystems — analytical, not performative.</div>
-    </div>
-    <div class="skill-cell stagger-child">
-      <span class="skill-icon">🎨</span>
-      <div class="skill-name">Graphic Design &amp; DTP</div>
-      <div class="skill-detail">Certified in desktop publishing and graphic design, applied across podcast brand assets, campaign visuals, and editorial layout.</div>
-    </div>
-    <div class="skill-cell stagger-child">
-      <span class="skill-icon">📣</span>
-      <div class="skill-name">Digital Marketing</div>
-      <div class="skill-detail">Audience strategy, content frameworks, and social media deployment — built to serve specific objectives, not vanity metrics.</div>
-    </div>
-    <div class="skill-cell stagger-child">
-      <span class="skill-icon">🗂️</span>
-      <div class="skill-name">Project Management</div>
-      <div class="skill-detail">Delivered as Project Manager for Voices Against Substance Abuse (VASA) Edo — a state-wide event in Edo State, Nigeria, handled from planning through to execution — and for the FlologPharma market entry campaign at the University of Benin, converting over 1,000 new users to the platform. FlologPharma is an AI-powered Nigerian telepharmacy and emergency medicine platform providing 24/7 virtual access to licensed pharmacists and direct-to-doorstep medication delivery.</div>
-    </div>
-    <div class="skill-cell stagger-child">
-      <span class="skill-icon">💻</span>
-      <div class="skill-name">Web &amp; UI/UX (In Progress)</div>
-      <div class="skill-detail">Actively building technical depth in web development and UI/UX design — bridging the gap between communications strategy and digital product thinking.</div>
-    </div>
-  </div>
-</section>
-
-<!-- TOOLS -->
-<section class="tools" id="tools">
-  <span class="section-label reveal">Tools &amp; Software</span>
-  <h2 class="section-title reveal">What's in<br>the working kit.</h2>
-  <div class="divider reveal"></div>
-  <div class="tools-grid">
-    <div class="tool-group stagger-child">
-      <div class="tool-group-label">Productivity &amp; Office</div>
-      <ul class="tool-list">
-        <li>Google Workspace <span class="tool-sub">Docs, Sheets, Slides, Drive, Forms, Gmail</span></li>
-        <li>Microsoft Office Suite <span class="tool-sub">Word, Excel, PowerPoint, Outlook</span></li>
-      </ul>
-    </div>
-    <div class="tool-group stagger-child">
-      <div class="tool-group-label">Design &amp; Publishing</div>
-      <ul class="tool-list">
-        <li>Canva <span class="tool-sub">Graphics, social assets, brand templates</span></li>
-        <li>CorelDRAW <span class="tool-sub">Desktop publishing &amp; vector design</span></li>
-      </ul>
-    </div>
-    <div class="tool-group stagger-child">
-      <div class="tool-group-label">Podcast &amp; Audio</div>
-      <ul class="tool-list">
-        <li>Riverside Studio <span class="tool-sub">Audio recording &amp; editing</span></li>
-        <li>Spotify for Podcasters <span class="tool-sub">Distribution &amp; analytics</span></li>
-        <li>Apple Podcasts Connect <span class="tool-sub">Publishing &amp; management</span></li>
-      </ul>
-    </div>
-    <div class="tool-group stagger-child">
-      <div class="tool-group-label">Content &amp; Publishing</div>
-      <ul class="tool-list">
-        <li>Substack <span class="tool-sub">Newsletter &amp; companion content</span></li>
-        <li>WordPress <span class="tool-sub">Web content management</span></li>
-        <li>YouTube Studio <span class="tool-sub">Video publishing &amp; management</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- DESIGN WORK -->
-<section class="design-work" id="design-work">
-  <span class="section-label reveal">Creative Portfolio</span>
-  <h2 class="section-title reveal">Graphic design<br>in practice.</h2>
-  <div class="divider reveal"></div>
-
-  <!--
-    SLIDESHOW SETUP FOR GITHUB DEPLOYMENT
-    Replace the src values below with your actual image paths.
-    Place your design images in an assets/designs/ folder in your repo.
-    Example: src="assets/designs/design-1.jpg"
-    The slides will display automatically once the image paths are correct.
-  -->
-  <div class="slideshow-wrap reveal">
-    <div class="slideshow" id="designSlideshow">
-
-      <div class="slide">
-        <img src="assets/designs/design-1.jpg" alt="Design Work 1"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="slide-placeholder">
-          <span class="slide-placeholder-icon">🎨</span>
-          <span class="slide-placeholder-text">Design Work 01</span>
-          <span class="slide-placeholder-path">Replace: assets/designs/design-1.jpg</span>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="assets/designs/design-2.jpg" alt="Design Work 2"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="slide-placeholder">
-          <span class="slide-placeholder-icon">🎨</span>
-          <span class="slide-placeholder-text">Design Work 02</span>
-          <span class="slide-placeholder-path">Replace: assets/designs/design-2.jpg</span>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="assets/designs/design-3.jpg" alt="Design Work 3"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="slide-placeholder">
-          <span class="slide-placeholder-icon">🎨</span>
-          <span class="slide-placeholder-text">Design Work 03</span>
-          <span class="slide-placeholder-path">Replace: assets/designs/design-3.jpg</span>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="assets/designs/design-4.jpg" alt="Design Work 4"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="slide-placeholder">
-          <span class="slide-placeholder-icon">🎨</span>
-          <span class="slide-placeholder-text">Design Work 04</span>
-          <span class="slide-placeholder-path">Replace: assets/designs/design-4.jpg</span>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="assets/designs/design-5.jpg" alt="Design Work 5"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="slide-placeholder">
-          <span class="slide-placeholder-icon">🎨</span>
-          <span class="slide-placeholder-text">Design Work 05</span>
-          <span class="slide-placeholder-path">Replace: assets/designs/design-5.jpg</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="slideshow-controls reveal">
-    <button class="slide-btn" id="prevSlide" aria-label="Previous slide">&#8592;</button>
-    <div class="slide-dots" id="slideDots">
-      <div class="slide-dot active" data-index="0"></div>
-      <div class="slide-dot" data-index="1"></div>
-      <div class="slide-dot" data-index="2"></div>
-      <div class="slide-dot" data-index="3"></div>
-      <div class="slide-dot" data-index="4"></div>
-    </div>
-    <button class="slide-btn" id="nextSlide" aria-label="Next slide">&#8594;</button>
-  </div>
-
-  <div class="design-cta reveal">
-    <a href="https://drive.google.com/drive/folders/1EzRTe7kqX9jvwB36iYaiszVJvnJJTp3N"
-       target="_blank" rel="noopener" class="btn-ghost">View Full Design Portfolio →</a>
-  </div>
-</section>
-
-<!-- VIDEO WORK -->
-<section class="video-work" id="video-work">
-  <span class="section-label reveal">Video Editing</span>
-  <h2 class="section-title reveal">Motion &amp;<br>visual storytelling.</h2>
-  <div class="divider reveal"></div>
-  <div class="video-cta-block reveal">
-    <span class="video-icon">▶</span>
-    <div>
-      <div class="video-cta-title">Watch the Work</div>
-      <p class="video-cta-desc">Video editing projects spanning podcast visuals, campaign content, and multimedia storytelling — viewable in full on Google Drive.</p>
-    </div>
-    <a href="https://drive.google.com/drive/folders/1Dc_k03YI-A-wBnjORcIrddENLM9TD2OG"
-       target="_blank" rel="noopener" class="btn-primary">View Video Portfolio →</a>
-  </div>
-</section>
-
-<!-- ROLES -->
-<section class="roles" id="roles">
-  <span class="section-label reveal">Experience</span>
-  <h2 class="section-title reveal">Roles &amp; positions.</h2>
-  <div class="divider reveal"></div>
-  <div class="roles-list">
-    <div class="role-row stagger-child">
-      <span class="role-org">Christ's Chosen Church of God International (CCCGi)</span>
-      <span class="role-title">Technical Director</span>
-      <span class="role-note">Current</span>
-    </div>
-    <div class="role-row stagger-child">
-      <span class="role-org">On Your Mic</span>
-      <span class="role-title">Host &amp; Producer</span>
-      <span class="role-note">Active</span>
-    </div>
-    <div class="role-row stagger-child">
-      <span class="role-org">Web3 Unfiltered</span>
-      <span class="role-title">Host &amp; Producer</span>
-      <span class="role-note">Active</span>
-    </div>
-    <div class="role-row stagger-child">
-      <span class="role-org">The SkyCarbon Enterprise Hour</span>
-      <span class="role-title">Host &amp; Producer</span>
-      <span class="role-note">Active</span>
-    </div>
-    <div class="role-row stagger-child">
-      <span class="role-org">National Association of University Students (NAUS) · South-South VP Office</span>
-      <span class="role-title">Director of Strategic Communication &amp; PR</span>
-      <span class="role-note">Former</span>
-    </div>
-    <div class="role-row stagger-child">
-      <span class="role-org">Voices Against Substance Abuse (VASA) Edo · State-Wide Event, Edo State</span>
-      <span class="role-title">Project Manager — Planning &amp; Execution</span>
-      <span class="role-note">Former</span>
-    </div>
-    <div class="role-row stagger-child">
-      <span class="role-org">FlologPharma × University of Benin</span>
-      <span class="role-title">Project Manager — Market Entry Campaign · 1,000+ Users Converted</span>
-      <span class="role-note">Former</span>
-    </div>
-    <div class="role-row stagger-child">
-      <span class="role-org">Association of Campus Journalists (ACJ) · University of Benin</span>
-      <span class="role-title">Founding President &amp; Editorial Board Chairman</span>
-      <span class="role-note">Foundational</span>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <span class="section-label">Get in Touch</span>
-  <h2 class="section-title">The right conversation starts with one pitch.</h2>
-  <p class="contact-sub">Podcast guest enquiries, collaboration proposals, strategic communications briefs, or freelance commissions — reach out directly.</p>
-  <div class="contact-links">
-    <a href="mailto:collinsodabi@gmail.com" class="contact-btn">Send an Enquiry</a>
-    <a href="https://www.linkedin.com/in/collins-odabi-266620380" class="contact-btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://www.instagram.com/o.v.collins?igsh=Y2x2YWN2cG9rdnh0" class="contact-btn-ghost" target="_blank" rel="noopener">Instagram</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <span class="footer-copy">© 2026 Collins Victory Odabi · Nigeria</span>
-  <span class="footer-tag">Media · Communications · Podcast</span>
-</footer>
-
-<script>
-  /* ── SIGNAL WAVE ── */
-  const canvas = document.getElementById('signalCanvas');
-  const ctx = canvas.getContext('2d');
-  let t = 0;
-
-  function resizeCanvas() {
-    canvas.width  = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-  }
-
-  function drawWave() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const w = canvas.width, h = canvas.height;
-    for (let i = 0; i < 5; i++) {
-      const freq  = 0.005 + i * 0.0018;
-      const amp   = 30 + i * 20;
-      const speed = 0.016 - i * 0.002;
-      const yOff  = h * (0.2 + i * 0.15);
-      const alpha = 0.5 - i * 0.07;
-      ctx.beginPath();
-      ctx.strokeStyle = `rgba(232,160,32,${alpha})`;
-      ctx.lineWidth   = 1.4 - i * 0.18;
-      for (let x = 0; x <= w; x += 2) {
-        const y = yOff
-          + Math.sin(x * freq + t * speed * 60 + i * 1.3) * amp
-          + Math.sin(x * freq * 1.7 + t * speed * 38) * (amp * 0.35);
-        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-      }
-      ctx.stroke();
-    }
-    t++;
-    requestAnimationFrame(drawWave);
-  }
-
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
-  drawWave();
-
-  /* ── NAV SHRINK ON SCROLL ── */
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
-
-  /* ── PARALLAX HERO ── */
-  const parallaxEl = document.querySelector('.hero-parallax');
-  window.addEventListener('scroll', () => {
-    if (parallaxEl) {
-      const offset = window.scrollY * 0.25;
-      parallaxEl.style.transform = `translateY(${offset}px)`;
-    }
-  }, { passive: true });
-
-  /* ── SCROLL REVEAL ── */
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
-    revealObserver.observe(el);
-  });
-
-  /* ── STAGGER CHILDREN ── */
-  const staggerObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const siblings = entry.target.parentElement.querySelectorAll('.stagger-child');
-        siblings.forEach((el, i) => {
-          setTimeout(() => el.classList.add('visible'), i * 100);
-        });
-        staggerObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.stagger-child').forEach(el => {
-    staggerObserver.observe(el);
-  });
-
-  /* ── SLIDESHOW ── */
-  const slideshow  = document.getElementById('designSlideshow');
-  const dots       = document.querySelectorAll('.slide-dot');
-  const totalSlides = 5;
-  let current      = 0;
-  let autoTimer;
-
-  function goToSlide(n) {
-    current = (n + totalSlides) % totalSlides;
-    slideshow.style.transform = `translateX(-${current * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('active', i === current));
-  }
-
-  function startAuto() {
-    autoTimer = setInterval(() => goToSlide(current + 1), 3500);
-  }
-
-  function resetAuto() {
-    clearInterval(autoTimer);
-    startAuto();
-  }
-
-  document.getElementById('nextSlide').addEventListener('click', () => { goToSlide(current + 1); resetAuto(); });
-  document.getElementById('prevSlide').addEventListener('click', () => { goToSlide(current - 1); resetAuto(); });
-  dots.forEach(d => d.addEventListener('click', () => { goToSlide(+d.dataset.index); resetAuto(); }));
-
-  // Pause on hover
-  const slideshowWrap = document.querySelector('.slideshow-wrap');
-  slideshowWrap.addEventListener('mouseenter', () => clearInterval(autoTimer));
-  slideshowWrap.addEventListener('mouseleave', startAuto);
-
-  startAuto();
-</script>
-
-</body>
-</html>
+    .role-title { font-size: 1rem; font-weight: 500
